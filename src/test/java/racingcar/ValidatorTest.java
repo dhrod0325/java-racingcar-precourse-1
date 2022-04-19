@@ -1,7 +1,6 @@
 package racingcar;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Validator;
@@ -16,9 +15,7 @@ public class ValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"테스트12345", "  "})
     public void 자동차입력검증실패(String name) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Validator.validateCarName(name);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Validator.validateCarName(name));
     }
 
     @ParameterizedTest
@@ -30,8 +27,6 @@ public class ValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"테스트12345", ""})
     public void 숫자입력실패(String name) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Validator.validateGameCount(name);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Validator.validateGameCount(name));
     }
 }

@@ -34,4 +34,10 @@ public class RaceTest {
         pobi.move(NumberMoveStatus.forward());
         Assertions.assertEquals("pobi", race.displayWinners());
     }
+
+    @Test
+    public void 우승자테스트실패() {
+        pobi.move(NumberMoveStatus.forward());
+        Assertions.assertNotEquals("jun", race.displayWinners());
+    }
 }
