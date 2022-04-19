@@ -24,20 +24,23 @@ public class RaceTest {
     }
 
     @Test
-    public void 우승자테스트() {
+    public void 우승자이름출력테스트1() {
         cars.move(NumberMoveStatus.forward());
+        
         Assertions.assertEquals("pobi,jun", race.displayWinners());
     }
 
     @Test
-    public void 우승자테스트2() {
+    public void 우승자이름출력테스트2() {
         pobi.move(NumberMoveStatus.forward());
+
         Assertions.assertEquals("pobi", race.displayWinners());
     }
 
     @Test
-    public void 우승자테스트실패() {
+    public void 우승자이름출력테스트실패() {
         pobi.move(NumberMoveStatus.forward());
+
         Assertions.assertNotEquals("jun", race.displayWinners());
     }
 }
