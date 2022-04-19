@@ -4,7 +4,6 @@ import racingcar.domain.car.move.CarMove;
 
 public class Car implements Comparable<Car> {
     private final CarName carName;
-
     private final CarPosition position = new CarPosition(0);
 
     public Car(String name) {
