@@ -22,8 +22,4 @@ public class NumberValidator {
 
         return result;
     }
-
-    public int validate(int number) {
-        return validate(number + "");
-    }
 }

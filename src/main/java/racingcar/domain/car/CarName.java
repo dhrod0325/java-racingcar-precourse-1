@@ -1,12 +1,12 @@
 package racingcar.domain.car;
 
-import racingcar.domain.Error;
+import racingcar.domain.error.Error;
 
 public class CarName {
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static final String ERROR_CAR_NAME_EMPTY = Error.msg("차 이름은 공백일 수 없습니다.");
-    public static final String ERROR_CAR_NAME_OVER_LENGTH = Error.msg("이름의 길이는 %d여야 합니다.");
+    public static final String ERROR_CAR_NAME_OVER_LENGTH = Error.msg("차 이름의 길이는 %d여야 합니다.");
 
     private final String name;
 
@@ -19,11 +19,7 @@ public class CarName {
     }
 
     private String validate(String name) {
-        if (name == null) {
-            throw new IllegalStateException();
-        }
-
-        if (name.trim().isEmpty()) {
+        if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException(ERROR_CAR_NAME_EMPTY);
         }
 

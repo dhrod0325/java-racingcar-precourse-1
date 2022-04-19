@@ -1,6 +1,6 @@
 package racingcar.domain.race;
 
-import racingcar.domain.Error;
+import racingcar.domain.error.Error;
 import racingcar.domain.validator.NumberValidator;
 
 public class RaceCount {

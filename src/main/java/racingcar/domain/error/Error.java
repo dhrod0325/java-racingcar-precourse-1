@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.error;
 
 public class Error {
     public static final String ERROR_PREFIX = "[ERROR] ";
