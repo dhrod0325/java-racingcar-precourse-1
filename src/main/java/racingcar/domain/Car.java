@@ -30,7 +30,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isOverPosition(int position) {
-        return this.position == position;
+        return this.position >= position;
     }
 
     public String getName() {
