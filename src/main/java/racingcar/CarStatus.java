@@ -1,5 +1,7 @@
 package racingcar;
 
-public enum CarStatus {
-    STOP, FORWARD
+public interface CarStatus {
+    boolean isForward();
+
+    boolean isStop();
 }
