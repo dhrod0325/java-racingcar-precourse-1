@@ -37,7 +37,7 @@ public class Race {
     }
 
     private Cars winners() {
-        return cars.getOverPositionCars(getWinnerPosition());
+        return getOverPositionCars(getWinnerPosition());
     }
 
     private int getWinnerPosition() {
@@ -48,5 +48,21 @@ public class Race {
         }
 
         return result.get(0).getPosition();
+    }
+
+    private Cars getOverPositionCars(int position) {
+        List<Car> result = new ArrayList<>();
+
+        for (Car car : cars) {
+            addOverPositionCar(result, car, position);
+        }
+
+        return new Cars(result);
+    }
+
+    private void addOverPositionCar(List<Car> result, Car car, int position) {
+        if (car.isOverPosition(position)) {
+            result.add(car);
+        }
     }
 }

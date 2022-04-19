@@ -32,23 +32,8 @@ public class Cars implements Iterable<Car> {
     public List<Car> sorted() {
         List<Car> result = new ArrayList<>(carList);
         Collections.sort(result);
+        
         return result;
-    }
-
-    public Cars getOverPositionCars(int position) {
-        List<Car> result = new ArrayList<>();
-
-        for (Car car : carList) {
-            extracted(position, result, car);
-        }
-
-        return new Cars(result);
-    }
-
-    private void extracted(int position, List<Car> result, Car car) {
-        if (car.isOverPosition(position)) {
-            result.add(car);
-        }
     }
 
     @Override
