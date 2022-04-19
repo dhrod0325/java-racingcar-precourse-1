@@ -13,6 +13,16 @@ public class Cars implements Iterable<Car> {
         this.carList = carList;
     }
 
+    public static Cars fromNames(String[] names) {
+        List<Car> carList = new ArrayList<>();
+
+        for (String carName : names) {
+            carList.add(new Car(carName));
+        }
+
+        return new Cars(carList);
+    }
+
     public void move(MoveStatus moveStatus) {
         for (Car car : carList) {
             car.move(moveStatus);

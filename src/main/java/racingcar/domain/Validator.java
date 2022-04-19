@@ -10,7 +10,15 @@ public class Validator {
 
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public static String validateCarName(String name) {
+    public static String[] validateCarNames(String[] names) {
+        for (String name : names) {
+            validateCarName(name);
+        }
+
+        return names;
+    }
+
+    public static void validateCarName(String name) {
         Objects.requireNonNull(name);
 
         if (name.trim().isEmpty()) {
@@ -20,8 +28,6 @@ public class Validator {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(String.format(ERROR_CAR_NAME_OVER_LENGTH, MAX_CAR_NAME_LENGTH));
         }
-
-        return name;
     }
 
     public static int validateGameCount(String number) {
