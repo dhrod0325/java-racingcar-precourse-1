@@ -3,7 +3,8 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.car.move.NumberCarMove;
 
 public class CarTest {
@@ -13,6 +14,8 @@ public class CarTest {
     public void before() {
         car = new Car("pobi");
     }
+
+
 
     @Test
     public void 테스트_자동차움직임() {

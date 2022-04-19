@@ -69,6 +69,14 @@ public class Cars implements Iterable<Car> {
         return new Cars(result);
     }
 
+    private void addOverPositionCar(List<Car> result, Car car, int position) {
+        if (!car.isOverPosition(position)) {
+            return;
+        }
+
+        result.add(car);
+    }
+
     private int getMaxPosition() {
         List<Car> result = sorted();
 
@@ -77,14 +85,6 @@ public class Cars implements Iterable<Car> {
         }
 
         return result.get(0).getPosition();
-    }
-
-    private void addOverPositionCar(List<Car> result, Car car, int position) {
-        if (!car.isOverPosition(position)) {
-            return;
-        }
-
-        result.add(car);
     }
 
     @Override
