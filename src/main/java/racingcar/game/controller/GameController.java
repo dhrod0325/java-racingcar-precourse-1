@@ -10,17 +10,17 @@ import racingcar.game.view.OutputView;
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarMove moveStatus;
+    private final CarMove carMove;
 
-    public GameController(InputView inputView, OutputView outputView, CarMove moveStatus) {
+    public GameController(InputView inputView, OutputView outputView, CarMove carMove) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.moveStatus = moveStatus;
+        this.carMove = carMove;
     }
 
     public void run() {
         Race race = new Race(getCars(), getRaceCount());
-        race.start(moveStatus);
+        race.start(carMove);
 
         outputView.display(race.displayCars());
         outputView.displayWinners(race.displayWinners());

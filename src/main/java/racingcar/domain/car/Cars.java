@@ -23,9 +23,9 @@ public class Cars implements Iterable<Car> {
         return new Cars(carList);
     }
 
-    public void move(CarMove moveStatus) {
+    public void move(CarMove carMove) {
         for (Car car : carList) {
-            car.move(moveStatus);
+            car.move(carMove);
         }
     }
 

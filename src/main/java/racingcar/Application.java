@@ -13,7 +13,7 @@ public class Application {
         new GameControllerBuilder()
                 .setInputView(new InputView())
                 .setOutputView(new OutputView())
-                .setMoveStatus(new RandomCarMove(RANDOM_CAR_FORWARD_MIN, RANDOM_CAR_FORWARD_MAX))
+                .setCarMove(new RandomCarMove(RANDOM_CAR_FORWARD_MIN, RANDOM_CAR_FORWARD_MAX))
                 .build()
                 .run();
     }

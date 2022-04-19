@@ -11,8 +11,8 @@ public class Car implements Comparable<Car> {
         this.carName = new CarName(name);
     }
 
-    public int move(CarMove moveStatus) {
-        if (moveStatus.isForward()) {
+    public int move(CarMove carMove) {
+        if (carMove.isForward()) {
             position.plus();
         }
 

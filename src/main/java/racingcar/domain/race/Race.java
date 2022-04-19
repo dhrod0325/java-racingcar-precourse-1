@@ -12,9 +12,9 @@ public class Race {
         this.cars = cars;
     }
 
-    public void start(CarMove moveStatus) {
+    public void start(CarMove carMove) {
         for (int i = 0; i < raceCount.get(); i++) {
-            cars.move(moveStatus);
+            cars.move(carMove);
         }
     }
 
