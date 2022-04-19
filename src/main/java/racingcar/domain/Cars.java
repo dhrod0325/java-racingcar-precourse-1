@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,12 @@ public class Cars {
         }
 
         return carList;
+    }
+
+    public void setCarStatus(CarStatus carStatus) {
+        for (Car car : carList) {
+            car.setCarStatus(carStatus);
+        }
     }
 
     public List<Car> winners() {

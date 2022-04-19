@@ -5,6 +5,8 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class CarsTest {
     Car pobi;
@@ -14,15 +16,15 @@ public class CarsTest {
     @BeforeEach
     public void before() {
         pobi = new Car("pobi");
-        pobi.setCarStatus(CarTestUtil.forwardCarStatus());
         jun = new Car("jun");
-        jun.setCarStatus(CarTestUtil.forwardCarStatus());
         cars = new Cars(Arrays.asList(pobi, jun));
+        cars.setCarStatus(CarTestUtil.forwardCarStatus());
     }
 
     @Test
     public void 차움직임테스트() {
         List<Car> movedCarList = cars.move();
+
         for (Car car : movedCarList) {
             Assertions.assertTrue(car.isCurrentPosition(1));
         }
@@ -34,8 +36,8 @@ public class CarsTest {
         Assertions.assertTrue(cars.winners().containsAll(Arrays.asList(pobi, jun)));
 
         jun.setCarStatus(CarTestUtil.stopCarStatus());
-        cars.move();
 
+        cars.move();
         Assertions.assertFalse(cars.winners().contains(jun));
     }
 }
