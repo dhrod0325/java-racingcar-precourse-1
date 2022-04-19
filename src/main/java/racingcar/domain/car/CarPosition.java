@@ -4,10 +4,14 @@ import racingcar.domain.validator.NumberValidator;
 
 class CarPosition {
     public static final String ERROR_POSITION = "정수를 입력하세요";
-    
+
     private int position;
 
     public CarPosition(int position) {
+        this(position + "");
+    }
+
+    public CarPosition(String position) {
         this.position = new NumberValidator(ERROR_POSITION).validate(position);
     }
 
