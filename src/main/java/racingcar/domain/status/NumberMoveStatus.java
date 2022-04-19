@@ -1,7 +1,8 @@
 package racingcar.domain.status;
 
 public class NumberMoveStatus implements MoveStatus {
-    public static final int CHECK_NUMBER = 4;
+    public static final int FORWARD_NUMBER = 4;
+    public static final int STOP_NUMBER = 0;
 
     private final int number;
 
@@ -10,14 +11,14 @@ public class NumberMoveStatus implements MoveStatus {
     }
 
     public boolean isForward() {
-        return number >= CHECK_NUMBER;
+        return number >= FORWARD_NUMBER;
     }
 
     public static NumberMoveStatus forward() {
-        return new NumberMoveStatus(CHECK_NUMBER);
+        return new NumberMoveStatus(FORWARD_NUMBER);
     }
 
     public static NumberMoveStatus stop() {
-        return new NumberMoveStatus(0);
+        return new NumberMoveStatus(STOP_NUMBER);
     }
 }
