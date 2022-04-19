@@ -1,20 +1,16 @@
 package racingcar.domain;
 
-public class Car {
+import racingcar.domain.status.CarStatus;
+
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
-
-    private CarStatus carStatus;
 
     public Car(String name) {
         this.name = name;
     }
 
-    public void setCarStatus(CarStatus carStatus) {
-        this.carStatus = carStatus;
-    }
-
-    public int move() {
+    public int move(CarStatus carStatus) {
         if (carStatus.isForward()) {
             position++;
         }
@@ -33,11 +29,23 @@ public class Car {
         return result.toString();
     }
 
-    public boolean isCurrentPosition(int position) {
+    public boolean isOverPosition(int position) {
         return this.position == position;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        if (position > o.position) {
+            return 1;
+        }
+        return 0;
     }
 }

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.status;
 
 public class NumberCarStatus implements CarStatus {
     private final int number;
