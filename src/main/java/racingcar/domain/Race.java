@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.domain.status.RandomMoveStatus;
+import racingcar.domain.status.MoveStatus;
 
 public class Race {
     private final Cars cars;
@@ -13,56 +11,19 @@ public class Race {
         this.cars = cars;
     }
 
-    public String start() {
+    public String start(MoveStatus moveStatus) {
         for (int i = 0; i < gameCount; i++) {
-            cars.move(new RandomMoveStatus(0, 9));
+            cars.move(moveStatus);
         }
 
         return cars.display();
     }
 
     public String displayWinners() {
-        return String.join(",", winnerNames());
-    }
-
-    private List<String> winnerNames() {
-        List<String> result = new ArrayList<>();
-        Cars winners = winners();
-
-        for (Car car : winners) {
-            result.add(car.getName());
-        }
-
-        return result;
+        return String.join(",", winners().getNames());
     }
 
     private Cars winners() {
-        return getOverPositionCars(getWinnerPosition());
-    }
-
-    private int getWinnerPosition() {
-        List<Car> result = cars.sorted();
-
-        if (result.isEmpty()) {
-            return 0;
-        }
-
-        return result.get(0).getPosition();
-    }
-
-    private Cars getOverPositionCars(int position) {
-        List<Car> result = new ArrayList<>();
-
-        for (Car car : cars) {
-            addOverPositionCar(result, car, position);
-        }
-
-        return new Cars(result);
-    }
-
-    private void addOverPositionCar(List<Car> result, Car car, int position) {
-        if (car.isOverPosition(position)) {
-            result.add(car);
-        }
+        return cars.getMaximumPositionCars();
     }
 }

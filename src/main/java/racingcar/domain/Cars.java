@@ -29,11 +29,53 @@ public class Cars implements Iterable<Car> {
         return String.join("\n", result);
     }
 
-    public List<Car> sorted() {
+    public Cars getMaximumPositionCars() {
+        return getOverPositionCars(getMaxPosition());
+    }
+
+    public List<String> getNames() {
+        List<String> result = new ArrayList<>();
+
+        for (Car car : this) {
+            result.add(car.getName());
+        }
+
+        return result;
+    }
+
+    private List<Car> sorted() {
         List<Car> result = new ArrayList<>(carList);
         Collections.sort(result);
-        
+
         return result;
+    }
+
+    private Cars getOverPositionCars(int position) {
+        List<Car> result = new ArrayList<>();
+
+        for (Car car : this) {
+            addOverPositionCar(result, car, position);
+        }
+
+        return new Cars(result);
+    }
+
+    private int getMaxPosition() {
+        List<Car> result = sorted();
+
+        if (result.isEmpty()) {
+            return 0;
+        }
+
+        return result.get(0).getPosition();
+    }
+
+    private void addOverPositionCar(List<Car> result, Car car, int position) {
+        if (!car.isOverPosition(position)) {
+            return;
+        }
+
+        result.add(car);
     }
 
     @Override

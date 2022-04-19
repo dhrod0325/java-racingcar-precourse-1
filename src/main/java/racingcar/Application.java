@@ -1,11 +1,21 @@
 package racingcar;
 
-import racingcar.controller.GameController;
+import racingcar.controller.GameControllerBuilder;
+import racingcar.domain.status.RandomMoveStatus;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
+        int RANDOM_CAR_MOVE_MIN = 0;
+        int RANDOM_CAR_MOVE_MAX = 9;
+
         // TODO: 프로그램 구현
-        GameController game = new GameController();
-        game.run();
+        new GameControllerBuilder()
+                .setInputView(new InputView())
+                .setOutputView(new OutputView())
+                .setMoveStatus(new RandomMoveStatus(RANDOM_CAR_MOVE_MIN, RANDOM_CAR_MOVE_MAX))
+                .build()
+                .run();
     }
 }
