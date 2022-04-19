@@ -1,9 +1,9 @@
 package racingcar.game.controller;
 
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.move.CarMove;
 import racingcar.domain.race.Race;
 import racingcar.domain.race.RaceCount;
-import racingcar.domain.car.move.CarMove;
 import racingcar.game.view.InputView;
 import racingcar.game.view.OutputView;
 

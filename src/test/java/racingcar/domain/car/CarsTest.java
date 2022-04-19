@@ -4,8 +4,6 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
 import racingcar.domain.car.move.NumberCarMove;
 
 public class CarsTest {
