@@ -36,8 +36,14 @@ public class Car {
         return position;
     }
 
-    @Override
-    public String toString() {
-        return name;
+    public String display() {
+        StringBuilder result = new StringBuilder(name);
+        result.append(" : ");
+
+        for (int i = 0; i < position; i++) {
+            result.append("-");
+        }
+
+        return result.toString();
     }
 }

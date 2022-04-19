@@ -13,7 +13,7 @@ public class CarTest {
     }
 
     @Test
-    public void 테스트_자동차상태테스트() {
+    public void 테스트_자동차상태() {
         car.setState(4);
         Assertions.assertTrue(car.isForward());
 
@@ -28,5 +28,13 @@ public class CarTest {
 
         car.setState(3);
         Assertions.assertEquals(car.move(), 1);
+    }
+
+    @Test
+    public void 테스트_현재위치표시() {
+        car.setState(4);
+        car.move();
+
+        Assertions.assertEquals(car.display(), "pobi : -");
     }
 }
