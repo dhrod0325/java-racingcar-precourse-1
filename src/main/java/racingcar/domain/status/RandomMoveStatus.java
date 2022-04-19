@@ -2,18 +2,18 @@ package racingcar.domain.status;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomCarStatus implements CarStatus {
+public class RandomMoveStatus implements MoveStatus {
     private final int min;
     private final int max;
 
-    public RandomCarStatus(int min, int max) {
+    public RandomMoveStatus(int min, int max) {
         this.min = min;
         this.max = max;
     }
 
     @Override
     public boolean isForward() {
-        return new NumberCarStatus(Randoms.pickNumberInRange(min, max))
+        return new NumberMoveStatus(Randoms.pickNumberInRange(min, max))
                 .isForward();
     }
 }

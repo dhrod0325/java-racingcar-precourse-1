@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import racingcar.domain.status.CarStatus;
+import racingcar.domain.status.MoveStatus;
 
 public class Cars implements Iterable<Car> {
     private final List<Car> carList;
@@ -13,9 +13,9 @@ public class Cars implements Iterable<Car> {
         this.carList = carList;
     }
 
-    public void move(CarStatus carStatus) {
+    public void move(MoveStatus moveStatus) {
         for (Car car : carList) {
-            car.move(carStatus);
+            car.move(moveStatus);
         }
     }
 

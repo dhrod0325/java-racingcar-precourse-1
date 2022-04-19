@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
-import racingcar.domain.status.NumberCarStatus;
+import racingcar.domain.status.NumberMoveStatus;
 
 public class RaceTest {
     @Test
@@ -15,7 +15,7 @@ public class RaceTest {
                 new Car("pobi"),
                 new Car("second")));
 
-        cars.move(NumberCarStatus.forward());
+        cars.move(NumberMoveStatus.forward());
 
         Assertions.assertEquals("pobi,second", new Race(cars, 5).displayWinners());
     }

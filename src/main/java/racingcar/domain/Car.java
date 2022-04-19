@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.domain.status.CarStatus;
+import racingcar.domain.status.MoveStatus;
 
 public class Car implements Comparable<Car> {
     private final String name;
@@ -10,8 +10,8 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public int move(CarStatus carStatus) {
-        if (carStatus.isForward()) {
+    public int move(MoveStatus moveStatus) {
+        if (moveStatus.isForward()) {
             position++;
         }
 

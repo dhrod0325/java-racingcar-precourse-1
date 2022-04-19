@@ -1,5 +1,5 @@
 package racingcar.domain.status;
 
-public interface CarStatus {
+public interface MoveStatus {
     boolean isForward();
 }

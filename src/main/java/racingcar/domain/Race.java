@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.status.RandomCarStatus;
+import racingcar.domain.status.RandomMoveStatus;
 
 public class Race {
     private final Cars cars;
@@ -15,7 +15,7 @@ public class Race {
 
     public String start() {
         for (int i = 0; i < gameCount; i++) {
-            cars.move(new RandomCarStatus(0, 9));
+            cars.move(new RandomMoveStatus(0, 9));
         }
 
         return cars.display();
