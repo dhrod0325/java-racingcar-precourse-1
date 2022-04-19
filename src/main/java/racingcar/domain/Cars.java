@@ -12,6 +12,12 @@ public class Cars {
         this.carList = carList;
     }
 
+    public void setCarStatus(CarStatus carStatus) {
+        for (Car car : carList) {
+            car.setCarStatus(carStatus);
+        }
+    }
+
     public List<Car> move() {
         for (Car car : carList) {
             int moved = car.move();
@@ -21,13 +27,27 @@ public class Cars {
         return carList;
     }
 
-    public void setCarStatus(CarStatus carStatus) {
+    public String displayWinners() {
+        return String.join(",", winnerNames());
+    }
+
+    public void display() {
         for (Car car : carList) {
-            car.setCarStatus(carStatus);
+            System.out.println(car.display());
         }
     }
 
-    public List<Car> winners() {
+    private List<String> winnerNames() {
+        List<String> result = new ArrayList<>();
+        List<Car> winners = winners();
+        for (Car car : winners) {
+            result.add(car.getName());
+        }
+
+        return result;
+    }
+
+    private List<Car> winners() {
         List<Car> result = new ArrayList<>();
 
         for (Car car : carList) {

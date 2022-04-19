@@ -36,4 +36,8 @@ public class Car {
     public boolean isCurrentPosition(int position) {
         return this.position == position;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -33,11 +33,11 @@ public class CarsTest {
     @Test
     public void 우승자테스트() {
         cars.move();
-        Assertions.assertTrue(cars.winners().containsAll(Arrays.asList(pobi, jun)));
+        Assertions.assertTrue(cars.displayWinners().contains("pobi,jun"));
 
         jun.setCarStatus(CarTestUtil.stopCarStatus());
 
         cars.move();
-        Assertions.assertFalse(cars.winners().contains(jun));
+        Assertions.assertFalse(cars.displayWinners().contains("jun"));
     }
 }
