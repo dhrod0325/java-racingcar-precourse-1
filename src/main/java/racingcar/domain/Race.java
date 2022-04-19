@@ -11,11 +11,13 @@ public class Race {
         this.cars = cars;
     }
 
-    public String start(MoveStatus moveStatus) {
+    public void start(MoveStatus moveStatus) {
         for (int i = 0; i < gameCount; i++) {
             cars.move(moveStatus);
         }
+    }
 
+    public String displayCars() {
         return cars.display();
     }
 

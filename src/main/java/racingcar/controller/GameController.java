@@ -18,7 +18,11 @@ public class GameController {
     }
 
     public void run() {
-        displayResult(new Race(getCars(), getGameCount()));
+        Race race = new Race(getCars(), getGameCount());
+        race.start(moveStatus);
+
+        outputView.display(race.displayCars());
+        outputView.displayWinners(race.displayWinners());
     }
 
     private Cars getCars() {
@@ -39,10 +43,5 @@ public class GameController {
             outputView.display(e.getMessage());
             return getGameCount();
         }
-    }
-
-    private void displayResult(Race race) {
-        outputView.display(race.start(moveStatus));
-        outputView.displayWinners(race.displayWinners());
     }
 }
