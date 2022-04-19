@@ -27,15 +27,4 @@ public class CarsTest {
             Assertions.assertEquals(car.getPosition(), 1);
         }
     }
-
-//    @Test
-//    public void 우승자테스트() {
-//        cars.move();
-//        Assertions.assertTrue(cars.displayWinners().contains("pobi,jun"));
-//
-//        jun.setCarStatus(CarTestUtil.stopCarStatus());
-//
-//        cars.move();
-//        Assertions.assertFalse(cars.displayWinners().contains("jun"));
-//    }
 }

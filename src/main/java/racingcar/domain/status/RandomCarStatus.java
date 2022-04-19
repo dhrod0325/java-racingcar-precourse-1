@@ -13,11 +13,7 @@ public class RandomCarStatus implements CarStatus {
 
     @Override
     public boolean isForward() {
-        return new NumberCarStatus(Randoms.pickNumberInRange(min, max)).isForward();
-    }
-
-    @Override
-    public boolean isStop() {
-        return !isForward();
+        return new NumberCarStatus(Randoms.pickNumberInRange(min, max))
+                .isForward();
     }
 }

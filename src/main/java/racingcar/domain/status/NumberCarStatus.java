@@ -11,7 +11,4 @@ public class NumberCarStatus implements CarStatus {
         return number >= 4;
     }
 
-    public boolean isStop() {
-        return !isForward();
-    }
 }
