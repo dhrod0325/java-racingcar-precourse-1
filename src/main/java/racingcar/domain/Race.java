@@ -4,15 +4,15 @@ import racingcar.domain.status.MoveStatus;
 
 public class Race {
     private final Cars cars;
-    private final int gameCount;
+    private final RaceCount raceCount;
 
-    public Race(Cars cars, int gameCount) {
-        this.gameCount = gameCount;
+    public Race(Cars cars, RaceCount raceCount) {
+        this.raceCount = raceCount;
         this.cars = cars;
     }
 
     public void start(MoveStatus moveStatus) {
-        for (int i = 0; i < gameCount; i++) {
+        for (int i = 0; i < raceCount.get(); i++) {
             cars.move(moveStatus);
         }
     }

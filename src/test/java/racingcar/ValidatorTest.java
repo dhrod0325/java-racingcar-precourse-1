@@ -21,12 +21,12 @@ public class ValidatorTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
     public void 숫자입력검증(int count) {
-        Validator.validateGameCount(String.valueOf(count));
+        Validator.validateRaceCount(String.valueOf(count));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"테스트12345", ""})
     public void 숫자입력실패(String name) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Validator.validateGameCount(name));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Validator.validateRaceCount(name));
     }
 }

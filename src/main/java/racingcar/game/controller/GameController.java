@@ -2,6 +2,7 @@ package racingcar.game.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
+import racingcar.domain.RaceCount;
 import racingcar.domain.status.MoveStatus;
 import racingcar.game.view.InputView;
 import racingcar.game.view.OutputView;
@@ -18,7 +19,7 @@ public class GameController {
     }
 
     public void run() {
-        Race race = new Race(getCars(), getGameCount());
+        Race race = new Race(getCars(), getRaceCount());
         race.start(moveStatus);
 
         outputView.display(race.displayCars());
@@ -35,13 +36,13 @@ public class GameController {
         }
     }
 
-    private int getGameCount() {
+    private RaceCount getRaceCount() {
         try {
             outputView.displayInputCount();
-            return inputView.getGameCount();
+            return inputView.getRaceCount();
         } catch (IllegalArgumentException e) {
             outputView.displayError(e);
-            return getGameCount();
+            return getRaceCount();
         }
     }
 }

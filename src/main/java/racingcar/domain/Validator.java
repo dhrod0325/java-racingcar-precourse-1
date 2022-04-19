@@ -8,14 +8,6 @@ public class Validator {
 
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public static String[] validateCarNames(String[] names) {
-        for (String name : names) {
-            validateCarName(name);
-        }
-
-        return names;
-    }
-
     public static void validateCarName(String name) {
         if (name == null) {
             throw new IllegalStateException();
@@ -30,7 +22,7 @@ public class Validator {
         }
     }
 
-    public static int validateGameCount(String number) {
+    public static int validateRaceCount(String number) {
         int result;
 
         try {

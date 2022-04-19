@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
+import racingcar.domain.RaceCount;
 import racingcar.domain.status.NumberMoveStatus;
 
 public class RaceTest {
@@ -20,13 +21,13 @@ public class RaceTest {
         pobi = new Car("pobi");
         jun = new Car("jun");
         cars = new Cars(Arrays.asList(pobi, jun));
-        race = new Race(cars, 5);
+        race = new Race(cars, new RaceCount(5));
     }
 
     @Test
     public void 우승자이름출력테스트1() {
         cars.move(NumberMoveStatus.forward());
-        
+
         Assertions.assertEquals("pobi,jun", race.displayWinners());
     }
 

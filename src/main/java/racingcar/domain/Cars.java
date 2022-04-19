@@ -47,7 +47,7 @@ public class Cars implements Iterable<Car> {
         List<String> result = new ArrayList<>();
 
         for (Car car : this) {
-            result.add(car.getName());
+            result.add(car.getCarName().get());
         }
 
         return result;

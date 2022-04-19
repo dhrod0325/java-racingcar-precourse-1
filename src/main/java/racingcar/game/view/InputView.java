@@ -2,16 +2,16 @@ package racingcar.game.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
-import racingcar.domain.Validator;
+import racingcar.domain.RaceCount;
 
 public class InputView {
-    public int getGameCount() {
+    public RaceCount getRaceCount() {
         String readLine = Console.readLine();
-        return Validator.validateGameCount(readLine);
+        return new RaceCount(readLine);
     }
 
     public Cars getCars() {
         String readLine = Console.readLine();
-        return Cars.fromNames(Validator.validateCarNames(readLine.split(",")));
+        return Cars.fromNames(readLine.split(","));
     }
 }
