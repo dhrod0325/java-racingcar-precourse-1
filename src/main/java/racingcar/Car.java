@@ -32,4 +32,8 @@ public class Car {
 
         return result.toString();
     }
+
+    public boolean isCurrentPosition(int position) {
+        return this.position == position;
+    }
 }
