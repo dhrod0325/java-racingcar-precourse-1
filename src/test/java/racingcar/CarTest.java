@@ -14,16 +14,16 @@ public class CarTest {
 
     @Test
     public void 테스트_자동차움직임() {
-        car.setCarStatus(new NumberCarStatus(4));
+        car.setCarStatus(CarTestUtil.forwardCarStatus());
         Assertions.assertEquals(car.move(), 1);
 
-        car.setCarStatus(new NumberCarStatus(3));
+        car.setCarStatus(CarTestUtil.stopCarStatus());
         Assertions.assertEquals(car.move(), 1);
     }
 
     @Test
     public void 테스트_현재위치표시() {
-        car.setCarStatus(new NumberCarStatus(4));
+        car.setCarStatus(CarTestUtil.forwardCarStatus());
         car.move();
         Assertions.assertEquals(car.display(), "pobi : -");
     }
