@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.domain.CarStatus;
-import racingcar.domain.NumberCarStatus;
+import racingcar.domain.status.CarStatus;
+import racingcar.domain.status.NumberCarStatus;
 
 public class CarTestUtil {
     public static CarStatus forwardCarStatus() {
