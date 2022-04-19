@@ -1,12 +1,12 @@
-package racingcar;
+package racingcar.domain.car;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.domain.status.NumberMoveStatus;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.move.NumberCarMove;
 
 public class CarsTest {
     Car pobi;
@@ -30,14 +30,14 @@ public class CarsTest {
 
     @Test
     public void 가장멀리이동한차들() {
-        cars.move(NumberMoveStatus.forward());
+        cars.move(NumberCarMove.forward());
 
         Assertions.assertArrayEquals(cars
                 .getMaximumPositionCars()
                 .getNames()
                 .toArray(), new String[]{"pobi", "jun"});
 
-        pobi.move(NumberMoveStatus.forward());
+        pobi.move(NumberCarMove.forward());
 
         Assertions.assertArrayEquals(cars
                 .getMaximumPositionCars()
@@ -47,7 +47,7 @@ public class CarsTest {
 
     @Test
     public void 차움직임테스트() {
-        cars.move(NumberMoveStatus.forward());
+        cars.move(NumberCarMove.forward());
 
         for (Car car : cars) {
             Assertions.assertEquals(car.getPosition(), 1);

@@ -1,6 +1,7 @@
-package racingcar.domain;
+package racingcar.domain.race;
 
-import racingcar.domain.status.MoveStatus;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.move.CarMove;
 
 public class Race {
     private final Cars cars;
@@ -11,7 +12,7 @@ public class Race {
         this.cars = cars;
     }
 
-    public void start(MoveStatus moveStatus) {
+    public void start(CarMove moveStatus) {
         for (int i = 0; i < raceCount.get(); i++) {
             cars.move(moveStatus);
         }

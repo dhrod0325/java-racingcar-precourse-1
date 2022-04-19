@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
-import racingcar.domain.status.MoveStatus;
+import racingcar.domain.car.move.CarMove;
 
 public class Car implements Comparable<Car> {
     private final CarName carName;
@@ -11,7 +11,7 @@ public class Car implements Comparable<Car> {
         this.carName = new CarName(name);
     }
 
-    public int move(MoveStatus moveStatus) {
+    public int move(CarMove moveStatus) {
         if (moveStatus.isForward()) {
             position.plus();
         }

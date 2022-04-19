@@ -1,14 +1,14 @@
-package racingcar;
+package racingcar.domain.race;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.domain.Race;
-import racingcar.domain.RaceCount;
-import racingcar.domain.status.NumberMoveStatus;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
+import racingcar.domain.race.Race;
+import racingcar.domain.race.RaceCount;
+import racingcar.domain.car.move.NumberCarMove;
 
 public class RaceTest {
     Car pobi;
@@ -26,21 +26,21 @@ public class RaceTest {
 
     @Test
     public void 우승자이름출력테스트1() {
-        cars.move(NumberMoveStatus.forward());
+        cars.move(NumberCarMove.forward());
 
         Assertions.assertEquals("pobi,jun", race.displayWinners());
     }
 
     @Test
     public void 우승자이름출력테스트2() {
-        pobi.move(NumberMoveStatus.forward());
+        pobi.move(NumberCarMove.forward());
 
         Assertions.assertEquals("pobi", race.displayWinners());
     }
 
     @Test
     public void 우승자이름출력테스트실패() {
-        pobi.move(NumberMoveStatus.forward());
+        pobi.move(NumberCarMove.forward());
 
         Assertions.assertNotEquals("jun", race.displayWinners());
     }

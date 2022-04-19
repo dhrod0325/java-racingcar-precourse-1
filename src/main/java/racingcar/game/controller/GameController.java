@@ -1,18 +1,18 @@
 package racingcar.game.controller;
 
-import racingcar.domain.Cars;
-import racingcar.domain.Race;
-import racingcar.domain.RaceCount;
-import racingcar.domain.status.MoveStatus;
+import racingcar.domain.car.Cars;
+import racingcar.domain.race.Race;
+import racingcar.domain.race.RaceCount;
+import racingcar.domain.car.move.CarMove;
 import racingcar.game.view.InputView;
 import racingcar.game.view.OutputView;
 
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final MoveStatus moveStatus;
+    private final CarMove moveStatus;
 
-    public GameController(InputView inputView, OutputView outputView, MoveStatus moveStatus) {
+    public GameController(InputView inputView, OutputView outputView, CarMove moveStatus) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.moveStatus = moveStatus;

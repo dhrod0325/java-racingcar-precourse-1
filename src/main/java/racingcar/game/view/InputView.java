@@ -1,8 +1,8 @@
 package racingcar.game.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Cars;
-import racingcar.domain.RaceCount;
+import racingcar.domain.car.Cars;
+import racingcar.domain.race.RaceCount;
 
 public class InputView {
     public RaceCount getRaceCount() {

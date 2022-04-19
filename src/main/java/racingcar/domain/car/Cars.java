@@ -1,10 +1,10 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import racingcar.domain.status.MoveStatus;
+import racingcar.domain.car.move.CarMove;
 
 public class Cars implements Iterable<Car> {
     private final List<Car> carList;
@@ -23,7 +23,7 @@ public class Cars implements Iterable<Car> {
         return new Cars(carList);
     }
 
-    public void move(MoveStatus moveStatus) {
+    public void move(CarMove moveStatus) {
         for (Car car : carList) {
             car.move(moveStatus);
         }

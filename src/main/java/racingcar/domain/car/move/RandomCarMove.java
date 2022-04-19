@@ -1,19 +1,19 @@
-package racingcar.domain.status;
+package racingcar.domain.car.move;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomMoveStatus implements MoveStatus {
+public class RandomCarMove implements CarMove {
     private final int min;
     private final int max;
 
-    public RandomMoveStatus(int min, int max) {
+    public RandomCarMove(int min, int max) {
         this.min = min;
         this.max = max;
     }
 
     @Override
     public boolean isForward() {
-        return new NumberMoveStatus(Randoms.pickNumberInRange(min, max))
+        return new NumberCarMove(Randoms.pickNumberInRange(min, max))
                 .isForward();
     }
 }

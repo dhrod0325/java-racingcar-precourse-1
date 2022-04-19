@@ -1,10 +1,10 @@
-package racingcar;
+package racingcar.domain.car;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.status.NumberMoveStatus;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.move.NumberCarMove;
 
 public class CarTest {
     Car car;
@@ -16,21 +16,21 @@ public class CarTest {
 
     @Test
     public void 테스트_자동차움직임() {
-        Assertions.assertEquals(car.move(NumberMoveStatus.forward()), 1);
-        Assertions.assertEquals(car.move(NumberMoveStatus.stop()), 1);
-        Assertions.assertEquals(car.move(NumberMoveStatus.forward()), 2);
-        Assertions.assertEquals(car.move(NumberMoveStatus.forward()), 3);
+        Assertions.assertEquals(car.move(NumberCarMove.forward()), 1);
+        Assertions.assertEquals(car.move(NumberCarMove.stop()), 1);
+        Assertions.assertEquals(car.move(NumberCarMove.forward()), 2);
+        Assertions.assertEquals(car.move(NumberCarMove.forward()), 3);
     }
 
     @Test
     public void 테스트_현재위치표시() {
-        car.move(NumberMoveStatus.forward());
+        car.move(NumberCarMove.forward());
         Assertions.assertEquals(car.display(), "pobi : -");
 
-        car.move(NumberMoveStatus.forward());
+        car.move(NumberCarMove.forward());
         Assertions.assertEquals(car.display(), "pobi : --");
 
-        car.move(NumberMoveStatus.stop());
+        car.move(NumberCarMove.stop());
         Assertions.assertEquals(car.display(), "pobi : --");
     }
 }

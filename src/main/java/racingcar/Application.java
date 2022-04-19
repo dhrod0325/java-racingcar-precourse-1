@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.domain.status.RandomMoveStatus;
+import racingcar.domain.car.move.RandomCarMove;
 import racingcar.game.controller.GameControllerBuilder;
 import racingcar.game.view.InputView;
 import racingcar.game.view.OutputView;
@@ -13,7 +13,7 @@ public class Application {
         new GameControllerBuilder()
                 .setInputView(new InputView())
                 .setOutputView(new OutputView())
-                .setMoveStatus(new RandomMoveStatus(RANDOM_CAR_FORWARD_MIN, RANDOM_CAR_FORWARD_MAX))
+                .setMoveStatus(new RandomCarMove(RANDOM_CAR_FORWARD_MIN, RANDOM_CAR_FORWARD_MAX))
                 .build()
                 .run();
     }

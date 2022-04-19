@@ -1,4 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.race;
+
+import racingcar.domain.Validator;
 
 public class RaceCount {
     private final int raceCount;
