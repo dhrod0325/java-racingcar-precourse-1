@@ -9,6 +9,10 @@ public class OutputView {
         System.out.println(str);
     }
 
+    public void displayError(Exception e) {
+        display(e.getMessage());
+    }
+
     public void displayWinners(String winners) {
         display(String.format(MSG_WINNER, winners));
     }

@@ -30,7 +30,7 @@ public class GameController {
             outputView.displayInputCarNames();
             return inputView.getCars();
         } catch (IllegalArgumentException e) {
-            outputView.display(e.getMessage());
+            outputView.displayError(e);
             return getCars();
         }
     }
@@ -40,7 +40,7 @@ public class GameController {
             outputView.displayInputCount();
             return inputView.getGameCount();
         } catch (IllegalArgumentException e) {
-            outputView.display(e.getMessage());
+            outputView.displayError(e);
             return getGameCount();
         }
     }
