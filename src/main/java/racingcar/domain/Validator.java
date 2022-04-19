@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class Validator {
     public static final String ERROR_PREFIX = "[ERROR]";
     public static final String ERROR_CAR_NAME_EMPTY = ERROR_PREFIX + "차 이름은 공백일 수 없습니다.";
@@ -9,7 +11,9 @@ public class Validator {
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static String validateCarName(String name) {
-        if (name.isEmpty()) {
+        Objects.requireNonNull(name);
+
+        if (name.trim().isEmpty()) {
             throw new IllegalArgumentException(ERROR_CAR_NAME_EMPTY);
         }
 

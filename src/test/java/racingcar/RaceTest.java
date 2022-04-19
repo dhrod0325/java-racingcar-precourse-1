@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
@@ -9,14 +10,28 @@ import racingcar.domain.Race;
 import racingcar.domain.status.NumberMoveStatus;
 
 public class RaceTest {
+    Car pobi;
+    Car jun;
+    Cars cars;
+    Race race;
+
+    @BeforeEach
+    public void before() {
+        pobi = new Car("pobi");
+        jun = new Car("jun");
+        cars = new Cars(Arrays.asList(pobi, jun));
+        race = new Race(cars, 5);
+    }
+
     @Test
     public void 우승자테스트() {
-        Cars cars = new Cars(Arrays.asList(
-                new Car("pobi"),
-                new Car("second")));
-
         cars.move(NumberMoveStatus.forward());
+        Assertions.assertEquals("pobi,jun", race.displayWinners());
+    }
 
-        Assertions.assertEquals("pobi,second", new Race(cars, 5).displayWinners());
+    @Test
+    public void 우승자테스트2() {
+        pobi.move(NumberMoveStatus.forward());
+        Assertions.assertEquals("pobi", race.displayWinners());
     }
 }

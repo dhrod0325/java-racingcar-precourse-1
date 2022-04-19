@@ -2,24 +2,36 @@ package racingcar;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Validator;
 
 public class ValidatorTest {
-    @Test
-    public void 자동차이름길이테스트() {
-        Validator.validateCarName("테스트");
+    @ParameterizedTest
+    @ValueSource(strings = {"테스트", "pobi", "hello", "world"})
+    public void 자동차입력검증(String name) {
+        Validator.validateCarName(name);
+    }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"테스트12345", "  "})
+    public void 자동차입력검증실패(String name) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Validator.validateCarName("테스트12345678");
+            Validator.validateCarName(name);
         });
     }
 
-    @Test
-    public void 숫자입력테스트() {
-        Validator.validateGameCount("1");
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+    public void 숫자입력검증(int count) {
+        Validator.validateGameCount(String.valueOf(count));
+    }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"테스트12345", ""})
+    public void 숫자입력실패(String name) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Validator.validateGameCount("테스트");
+            Validator.validateGameCount(name);
         });
     }
 }

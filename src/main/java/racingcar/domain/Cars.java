@@ -46,7 +46,6 @@ public class Cars implements Iterable<Car> {
     private List<Car> sorted() {
         List<Car> result = new ArrayList<>(carList);
         Collections.sort(result);
-
         return result;
     }
 
