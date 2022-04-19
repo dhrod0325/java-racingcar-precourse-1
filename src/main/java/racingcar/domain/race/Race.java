@@ -12,10 +12,16 @@ public class Race {
         this.cars = cars;
     }
 
-    public void start(CarMove carMove) {
+    public String start(CarMove carMove) {
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < raceCount.get(); i++) {
             cars.move(carMove);
+
+            sb.append(cars.display()).append("\n\n");
         }
+
+        return sb.toString();
     }
 
     public String displayCars() {

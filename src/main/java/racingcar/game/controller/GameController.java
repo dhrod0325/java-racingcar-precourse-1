@@ -20,9 +20,7 @@ public class GameController {
 
     public void run() {
         Race race = new Race(getCars(), getRaceCount());
-        race.start(carMove);
-
-        outputView.display(race.displayCars());
+        outputView.display(race.start(carMove));
         outputView.displayWinners(race.displayWinners());
     }
 
