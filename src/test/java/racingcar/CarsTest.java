@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.status.NumberCarStatus;
 
 public class CarsTest {
     Car pobi;
@@ -21,7 +22,7 @@ public class CarsTest {
 
     @Test
     public void 차움직임테스트() {
-        cars.move(CarTestUtil.forwardCarStatus());
+        cars.move(NumberCarStatus.forward());
 
         for (Car car : cars) {
             Assertions.assertEquals(car.getPosition(), 1);
