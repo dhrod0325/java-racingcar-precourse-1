@@ -1,10 +1,10 @@
-package racingcar.controller;
+package racingcar.game.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
 import racingcar.domain.status.MoveStatus;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.game.view.InputView;
+import racingcar.game.view.OutputView;
 
 public class GameController {
     private final InputView inputView;

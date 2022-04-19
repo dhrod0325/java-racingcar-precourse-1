@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.game.view;
 
 public class OutputView {
     public static final String MSG_WINNER = "최종 우승자는 %s 입니다.";

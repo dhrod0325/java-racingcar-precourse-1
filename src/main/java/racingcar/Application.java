@@ -1,9 +1,9 @@
 package racingcar;
 
-import racingcar.controller.GameControllerBuilder;
+import racingcar.game.controller.GameControllerBuilder;
 import racingcar.domain.status.RandomMoveStatus;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.game.view.InputView;
+import racingcar.game.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
