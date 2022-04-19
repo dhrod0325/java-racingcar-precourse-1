@@ -27,6 +27,6 @@ public class Race {
     }
 
     private Cars winners() {
-        return cars.getMaximumPositionCars();
+        return cars.getMaxMovedCars();
     }
 }

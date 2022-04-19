@@ -39,7 +39,7 @@ public class Cars implements Iterable<Car> {
         return String.join("\n", result);
     }
 
-    public Cars getMaximumPositionCars() {
+    public Cars getMaxMovedCars() {
         return getOverPositionCars(getMaxPosition());
     }
 
