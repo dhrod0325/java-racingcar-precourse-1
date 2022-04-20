@@ -1,7 +1,6 @@
 package racingcar.domain.race;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Arrays;
@@ -15,33 +14,32 @@ import racingcar.domain.cars.Cars;
 public class RaceTest {
     Car pobi;
     Car jun;
-    Cars cars;
     Race race;
+    RaceResult raceResult;
 
     @BeforeEach
     public void before() {
         pobi = new Car("pobi");
         jun = new Car("jun");
-        cars = new Cars(Arrays.asList(pobi, jun));
-
         race = new RaceBuilder()
-                .setCars(cars)
+                .setCars(new Cars(Arrays.asList(pobi, jun)))
                 .setRaceCount(new RaceCount(5)).build();
+
+        raceResult = race.start(NumberCarMove.forward());
     }
 
     @Test
     public void 우승자이름출력테스트1() {
-        race.start(NumberCarMove.forward());
-
-        assertEquals(race.winnerCarsNameList(), Arrays.asList("pobi", "jun"));
+        assertEquals(raceResult.winnerCarsNameList(), Arrays.asList("pobi", "jun"));
     }
 
     @Test
     public void 우승자이름출력테스트2() {
         pobi.move(NumberCarMove.forward());
-        race.start(NumberCarMove.forward());
 
-        assertEquals(race.winnerCarsNameList(), Collections.singletonList("pobi"));
+        raceResult = race.start(NumberCarMove.forward());
+
+        assertEquals(raceResult.winnerCarsNameList(), Collections.singletonList("pobi"));
     }
 
     @Test
@@ -49,6 +47,6 @@ public class RaceTest {
         pobi.move(NumberCarMove.forward());
         race.start(NumberCarMove.forward());
 
-        assertNotEquals(race.winnerCarsNameList(), Collections.singletonList("jun"));
+        assertNotEquals(raceResult.winnerCarsNameList(), Collections.singletonList("jun"));
     }
 }

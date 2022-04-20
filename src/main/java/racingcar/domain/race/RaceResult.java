@@ -1,27 +1,40 @@
 package racingcar.domain.race;
 
-import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.cars.Cars;
+import racingcar.domain.cars.CarsName;
+import racingcar.domain.cars.filter.CarsFilter;
 
 public class RaceResult {
-    public static final String MSG_WINNERS = "최종 우승자는 %s 입니다.";
+    private final Cars cars;
+    private final RaceMonitor monitor;
 
-    private final List<String> result = new ArrayList<>();
-
-    public void addResult(String display) {
-        result.add(display);
+    public RaceResult(Cars cars) {
+        this.cars = cars;
+        this.monitor = new RaceMonitor();
     }
 
-    public void addResultWinners(List<String> names) {
-        result.add(String.format(MSG_WINNERS, String.join(",", names)));
+    public Cars getWinners() {
+        return CarsFilter.maxMoved(cars);
     }
 
-    public void clear() {
-        result.clear();
+    public CarsName winnerCarsName() {
+        return getWinners().getCarsName();
     }
 
-    @Override
-    public String toString() {
-        return String.join("\n\n", result);
+    public List<String> winnerCarsNameList() {
+        return winnerCarsName().toStringList();
+    }
+
+    public String winnerNames() {
+        return String.join(",", winnerCarsNameList());
+    }
+
+    public void addMonitor(String display) {
+        monitor.add(display);
+    }
+
+    public String displayMonitor() {
+        return monitor.toString();
     }
 }

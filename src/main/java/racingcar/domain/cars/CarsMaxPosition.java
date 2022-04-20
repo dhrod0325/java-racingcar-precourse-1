@@ -1,4 +1,4 @@
-package racingcar.domain.cars.filter;
+package racingcar.domain.cars;
 
 import java.util.ArrayList;
 import java.util.Collections;

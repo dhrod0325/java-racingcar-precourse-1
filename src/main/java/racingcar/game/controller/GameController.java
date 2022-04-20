@@ -26,9 +26,10 @@ public class GameController {
                 .setRaceCount(getRaceCount())
                 .build();
 
-        race.start(carMove);
+        RaceResult result = race.start(carMove);
 
-        outputView.display(race.getRaceResult());
+        outputView.display(result.displayMonitor());
+        outputView.displayWinners(result.winnerNames());
     }
 
     private Cars getCars() {
