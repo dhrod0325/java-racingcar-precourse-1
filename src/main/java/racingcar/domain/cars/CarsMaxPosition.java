@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.domain.car.Car;
+import racingcar.domain.car.CarPosition;
 
 public class CarsMaxPosition {
     private final List<Car> carList;
@@ -12,15 +13,15 @@ public class CarsMaxPosition {
         this.carList = carList;
     }
 
-    public int get() {
+    public CarPosition get() {
         List<Car> result = new ArrayList<>(carList);
 
         Collections.sort(result);
 
         if (result.isEmpty()) {
-            return 0;
+            return new CarPosition(0);
         }
 
-        return result.get(0).getPosition().get();
+        return result.get(0).getPosition();
     }
 }
