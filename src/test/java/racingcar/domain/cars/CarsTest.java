@@ -1,7 +1,9 @@
 package racingcar.domain.cars;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Arrays;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
@@ -21,9 +23,9 @@ public class CarsTest {
 
     @Test
     public void 자동차들생성테스트() {
-        Assertions.assertArrayEquals(CarsFactory
+        assertArrayEquals(CarsFactory
                 .fromNames(new String[]{"pobi", "jun"})
-                .getNames()
+                .toNames()
                 .toArray(), new String[]{"pobi", "jun"});
     }
 
@@ -31,16 +33,16 @@ public class CarsTest {
     public void 가장멀리이동한차들() {
         cars.move(NumberCarMove.forward());
 
-        Assertions.assertArrayEquals(cars
+        assertArrayEquals(cars
                 .filterMaxMoved()
-                .getNames()
+                .toNames()
                 .toArray(), new String[]{"pobi", "jun"});
 
         pobi.move(NumberCarMove.forward());
 
-        Assertions.assertArrayEquals(cars
+        assertArrayEquals(cars
                 .filterMaxMoved()
-                .getNames()
+                .toNames()
                 .toArray(), new String[]{"pobi"});
     }
 
@@ -49,7 +51,7 @@ public class CarsTest {
         cars.move(NumberCarMove.forward());
 
         for (Car car : cars) {
-            Assertions.assertEquals(car.getPosition(), 1);
+            assertEquals(car.getPosition().get(), 1);
         }
     }
 }
