@@ -22,8 +22,8 @@ public class Cars {
         }
     }
 
-    public List<String> toNames() {
-        return new CarsName(carList).getNames();
+    public CarsName toNames() {
+        return new CarsName(carList);
     }
 
     @Override
