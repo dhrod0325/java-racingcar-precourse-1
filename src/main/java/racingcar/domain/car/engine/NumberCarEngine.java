@@ -10,14 +10,6 @@ public class NumberCarEngine implements CarEngine {
         this.number = number;
     }
 
-    public static NumberCarEngine forward() {
-        return new NumberCarEngine(FORWARD_NUMBER);
-    }
-
-    public static NumberCarEngine stop() {
-        return new NumberCarEngine(STOP_NUMBER);
-    }
-
     public boolean isForward() {
         return number >= FORWARD_NUMBER;
     }

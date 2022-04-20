@@ -5,10 +5,6 @@ public class OutputView {
     public static final String MSG_INPUT_COUNT = "시도할회수는몇회인가요?";
     public static final String MSG_WINNER = "최종 우승자는 %s 입니다.";
 
-    public void display(Object o) {
-        System.out.println(o.toString());
-    }
-
     public void display(String str) {
         System.out.println(str);
     }

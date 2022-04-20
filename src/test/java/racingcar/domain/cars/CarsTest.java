@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.engine.CarEngine;
+import racingcar.domain.car.engine.CarEngineFactory;
 import racingcar.domain.cars.factory.CarsFactory;
 import racingcar.domain.cars.filter.CarsFilter;
 
@@ -33,13 +33,13 @@ public class CarsTest {
 
     @Test
     public void 가장멀리이동한차들() {
-        cars.move(CarEngine.forward());
+        cars.move(CarEngineFactory.forward());
 
         assertArrayEquals(CarsFilter.maxMoved(cars)
                 .getCarsName()
                 .toArray(), new String[]{"pobi", "jun"});
 
-        pobi.move(CarEngine.forward());
+        pobi.move(CarEngineFactory.forward());
 
         assertArrayEquals(CarsFilter.maxMoved(cars)
                 .getCarsName()
@@ -48,7 +48,7 @@ public class CarsTest {
 
     @Test
     public void 차움직임테스트() {
-        cars.move(CarEngine.forward());
+        cars.move(CarEngineFactory.forward());
 
         for (Car car : cars.toList()) {
             assertEquals(car.getPosition().get(), 1);

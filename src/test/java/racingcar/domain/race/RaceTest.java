@@ -8,7 +8,7 @@ import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.engine.CarEngine;
+import racingcar.domain.car.engine.CarEngineFactory;
 import racingcar.domain.cars.Cars;
 
 public class RaceTest {
@@ -25,7 +25,7 @@ public class RaceTest {
                 .setCars(new Cars(Arrays.asList(pobi, jun)))
                 .setRaceCount(new RaceCount(5)).build();
 
-        raceResult = race.start(CarEngine.forward());
+        raceResult = race.start(CarEngineFactory.forward());
     }
 
     @Test
@@ -35,17 +35,17 @@ public class RaceTest {
 
     @Test
     public void 우승자이름출력테스트2() {
-        pobi.move(CarEngine.forward());
+        pobi.move(CarEngineFactory.forward());
 
-        raceResult = race.start(CarEngine.forward());
+        raceResult = race.start(CarEngineFactory.forward());
 
         assertEquals(raceResult.winnerCarsNameList(), Collections.singletonList("pobi"));
     }
 
     @Test
     public void 우승자이름출력테스트실패() {
-        pobi.move(CarEngine.forward());
-        race.start(CarEngine.forward());
+        pobi.move(CarEngineFactory.forward());
+        race.start(CarEngineFactory.forward());
 
         assertNotEquals(raceResult.winnerCarsNameList(), Collections.singletonList("jun"));
     }
