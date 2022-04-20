@@ -16,10 +16,17 @@ public class CarTest {
 
     @Test
     public void 테스트_자동차움직임() {
-        assertEquals(car.move(NumberCarMove.forward()).get(), 1);
-        assertEquals(car.move(NumberCarMove.stop()).get(), 1);
-        assertEquals(car.move(NumberCarMove.forward()).get(), 2);
-        assertEquals(car.move(NumberCarMove.forward()).get(), 3);
+        car.move(NumberCarMove.forward());
+        assertEquals(car.getPosition().get(), 1);
+
+        car.move(NumberCarMove.forward());
+        assertEquals(car.getPosition().get(), 2);
+
+        car.move(NumberCarMove.forward());
+        assertEquals(car.getPosition().get(), 3);
+
+        car.move(NumberCarMove.stop());
+        assertEquals(car.getPosition().get(), 3);
     }
 
     @Test
