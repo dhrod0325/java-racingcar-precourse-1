@@ -26,7 +26,7 @@ public class CarsTest {
     public void 자동차들생성테스트() {
         assertArrayEquals(CarsFactory
                 .fromNames(new String[]{"pobi", "jun"})
-                .toNames()
+                .getCarsName()
                 .toArray(), new String[]{"pobi", "jun"});
     }
 
@@ -36,14 +36,14 @@ public class CarsTest {
 
         assertArrayEquals(cars
                 .filterMaxMoved()
-                .toNames()
+                .getCarsName()
                 .toArray(), new String[]{"pobi", "jun"});
 
         pobi.move(NumberCarMove.forward());
 
         assertArrayEquals(cars
                 .filterMaxMoved()
-                .toNames()
+                .getCarsName()
                 .toArray(), new String[]{"pobi"});
     }
 

@@ -1,7 +1,8 @@
 package racingcar.game.controller;
 
-import racingcar.domain.cars.Cars;
 import racingcar.domain.car.move.CarMove;
+import racingcar.domain.cars.Cars;
+import racingcar.domain.race.Race;
 import racingcar.domain.race.RaceBuilder;
 import racingcar.domain.race.RaceCount;
 import racingcar.domain.race.RaceResult;
@@ -20,13 +21,14 @@ public class GameController {
     }
 
     public void run() {
-        RaceResult raceResult = new RaceBuilder()
+        Race race = new RaceBuilder()
                 .setCars(getCars())
                 .setRaceCount(getRaceCount())
-                .build()
-                .start(carMove);
+                .build();
 
-        outputView.display(raceResult.toString());
+        race.start(carMove);
+
+        outputView.display(race.getRaceResult());
     }
 
     private Cars getCars() {

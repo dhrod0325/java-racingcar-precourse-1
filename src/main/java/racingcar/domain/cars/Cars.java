@@ -23,7 +23,7 @@ public class Cars {
         }
     }
 
-    public CarsName toNames() {
+    public CarsName getCarsName() {
         return new CarsName(carList);
     }
 

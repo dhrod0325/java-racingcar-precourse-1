@@ -16,6 +16,10 @@ public class RaceResult {
         result.add(String.format(MSG_WINNERS, String.join(",", names)));
     }
 
+    public void clear() {
+        result.clear();
+    }
+
     @Override
     public String toString() {
         return String.join("\n\n", result);
