@@ -12,11 +12,11 @@ public class Race {
         this.cars = cars;
     }
 
-    public RaceResult start(Engine carEngine) {
+    public RaceResult start(Engine engine) {
         RaceResult result = new RaceResult(cars);
 
         for (int i = 0; i < raceCount.get(); i++) {
-            cars.move(carEngine);
+            cars.move(engine);
             result.addMonitor(cars.toString());
         }
 

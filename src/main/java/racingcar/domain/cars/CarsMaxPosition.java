@@ -19,7 +19,7 @@ public class CarsMaxPosition {
         Collections.sort(result);
 
         if (result.isEmpty()) {
-            return new CarPosition(0);
+            return CarPosition.zero();
         }
 
         return result.get(0).getPosition();

@@ -12,12 +12,12 @@ import racingcar.game.view.OutputView;
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final Engine carEngine;
+    private final Engine engine;
 
-    public GameController(InputView inputView, OutputView outputView, Engine carEngine) {
+    public GameController(InputView inputView, OutputView outputView, Engine engine) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.carEngine = carEngine;
+        this.engine = engine;
     }
 
     public void run() {
@@ -26,7 +26,7 @@ public class GameController {
                 .setRaceCount(getRaceCount())
                 .build();
 
-        RaceResult result = race.start(carEngine);
+        RaceResult result = race.start(engine);
 
         outputView.display(result.displayMonitor());
         outputView.displayWinners(result.winnerNames());

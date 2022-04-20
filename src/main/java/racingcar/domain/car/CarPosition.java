@@ -3,6 +3,8 @@ package racingcar.domain.car;
 import racingcar.domain.validator.NumberValidator;
 
 public class CarPosition {
+    public static final int ZERO = 0;
+
     private int position;
 
     public CarPosition(int position) {
@@ -23,5 +25,9 @@ public class CarPosition {
 
     public void plus() {
         this.position++;
+    }
+
+    public static CarPosition zero() {
+        return new CarPosition(ZERO);
     }
 }

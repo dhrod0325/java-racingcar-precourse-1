@@ -7,7 +7,7 @@ import racingcar.game.view.OutputView;
 public class GameControllerBuilder {
     private InputView inputView;
     private OutputView outputView;
-    private Engine carEngine;
+    private Engine engine;
 
     public GameControllerBuilder setInputView(InputView inputView) {
         this.inputView = inputView;
@@ -19,12 +19,12 @@ public class GameControllerBuilder {
         return this;
     }
 
-    public GameControllerBuilder setCarEngine(Engine carEngine) {
-        this.carEngine = carEngine;
+    public GameControllerBuilder setEngine(Engine engine) {
+        this.engine = engine;
         return this;
     }
 
     public GameController build() {
-        return new GameController(inputView, outputView, carEngine);
+        return new GameController(inputView, outputView, engine);
     }
 }
