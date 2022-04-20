@@ -3,7 +3,7 @@ package racingcar.domain.cars;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.move.CarMove;
+import racingcar.domain.car.engine.CarEngine;
 
 public class Cars {
     private final List<Car> carList;
@@ -12,9 +12,9 @@ public class Cars {
         this.carList = carList;
     }
 
-    public void move(CarMove carMove) {
+    public void move(CarEngine carEngine) {
         for (Car car : carList) {
-            car.move(carMove);
+            car.move(carEngine);
         }
     }
 

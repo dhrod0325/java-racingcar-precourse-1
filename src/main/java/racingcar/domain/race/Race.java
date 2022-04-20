@@ -1,6 +1,6 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.move.CarMove;
+import racingcar.domain.car.engine.CarEngine;
 import racingcar.domain.cars.Cars;
 
 public class Race {
@@ -12,11 +12,11 @@ public class Race {
         this.cars = cars;
     }
 
-    public RaceResult start(CarMove carMove) {
+    public RaceResult start(CarEngine carEngine) {
         RaceResult result = new RaceResult(cars);
 
         for (int i = 0; i < raceCount.get(); i++) {
-            cars.move(carMove);
+            cars.move(carEngine);
             result.addMonitor(cars.toString());
         }
 
