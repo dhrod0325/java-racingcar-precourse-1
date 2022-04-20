@@ -21,7 +21,7 @@ public class RaceResult {
     }
 
     public List<String> winnerCarsNameList() {
-        return winnerCarsName().toStringList();
+        return winnerCarsName().toList();
     }
 
     public String winnerNames() {

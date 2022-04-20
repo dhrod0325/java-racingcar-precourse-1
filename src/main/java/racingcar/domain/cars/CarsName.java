@@ -34,7 +34,7 @@ public class CarsName {
         return result;
     }
 
-    public List<String> toStringList() {
+    public List<String> toList() {
         List<String> result = new ArrayList<>();
 
         for (CarName carName : getNames()) {
@@ -45,10 +45,10 @@ public class CarsName {
     }
 
     public Set<String> toSet() {
-        return new HashSet<>(toStringList());
+        return new HashSet<>(toList());
     }
 
     public String[] toArray() {
-        return toStringList().toArray(new String[0]);
+        return toList().toArray(new String[0]);
     }
 }
