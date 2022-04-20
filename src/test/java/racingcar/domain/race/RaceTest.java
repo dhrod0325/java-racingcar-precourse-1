@@ -8,8 +8,8 @@ import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
-import racingcar.domain.engine.EngineFactory;
 import racingcar.domain.cars.Cars;
+import racingcar.domain.engine.EngineFactory;
 
 public class RaceTest {
     Car pobi;
@@ -23,6 +23,7 @@ public class RaceTest {
         jun = new Car("jun");
         race = new RaceBuilder()
                 .setCars(new Cars(Arrays.asList(pobi, jun)))
+                .setMonitor(new RaceMonitor())
                 .setRaceCount(new RaceCount(5)).build();
 
         raceResult = race.start(EngineFactory.forward());

@@ -10,8 +10,11 @@ public class RaceMonitor {
         result.add(status);
     }
 
-    @Override
-    public String toString() {
+    public void clear() {
+        result.clear();
+    }
+
+    public String display() {
         return String.join("\n\n", result);
     }
 }
