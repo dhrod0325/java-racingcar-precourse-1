@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.move.NumberCarMove;
 import racingcar.domain.cars.factory.CarsFactory;
+import racingcar.domain.cars.filter.CarsFilter;
 
 public class CarsTest {
     Car pobi;
@@ -34,15 +35,13 @@ public class CarsTest {
     public void 가장멀리이동한차들() {
         cars.move(NumberCarMove.forward());
 
-        assertArrayEquals(cars
-                .filterMaxMoved()
+        assertArrayEquals(CarsFilter.maxMoved(cars)
                 .getCarsName()
                 .toArray(), new String[]{"pobi", "jun"});
 
         pobi.move(NumberCarMove.forward());
 
-        assertArrayEquals(cars
-                .filterMaxMoved()
+        assertArrayEquals(CarsFilter.maxMoved(cars)
                 .getCarsName()
                 .toArray(), new String[]{"pobi"});
     }
