@@ -1,11 +1,11 @@
-package racingcar.domain.car;
+package racingcar.domain.cars;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
 import racingcar.domain.car.move.NumberCarMove;
-import racingcar.domain.cars.Cars;
 
 public class CarsTest {
     Car pobi;
@@ -21,7 +21,7 @@ public class CarsTest {
 
     @Test
     public void 자동차들생성테스트() {
-        Assertions.assertArrayEquals(Cars
+        Assertions.assertArrayEquals(CarsFactory
                 .fromNames(new String[]{"pobi", "jun"})
                 .getNames()
                 .toArray(), new String[]{"pobi", "jun"});

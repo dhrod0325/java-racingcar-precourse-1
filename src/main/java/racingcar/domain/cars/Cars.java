@@ -17,16 +17,6 @@ public class Cars implements Iterable<Car> {
         return CarsFilter.maxMoved(carList);
     }
 
-    public static Cars fromNames(String[] names) {
-        List<Car> carList = new ArrayList<>();
-
-        for (String carName : names) {
-            carList.add(new Car(carName));
-        }
-
-        return new Cars(carList);
-    }
-
     public void move(CarMove carMove) {
         for (Car car : carList) {
             car.move(carMove);
