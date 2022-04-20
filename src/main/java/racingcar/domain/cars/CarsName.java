@@ -20,7 +20,7 @@ public class CarsName {
 
     public void validate() {
         if (toSet().size() != carList.size()) {
-            throw new IllegalStateException();
+            throw new IllegalStateException(MSG_INVALID_NAME);
         }
     }
 
