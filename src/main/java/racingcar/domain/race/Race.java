@@ -17,10 +17,10 @@ public class Race {
 
         for (int i = 0; i < raceCount.get(); i++) {
             cars.move(carMove);
-            result.addResult(cars.display());
+            result.addResult(cars.toString());
         }
 
-        result.addResultWinners(cars.filterMaxMoved().getNames());
+        result.addResultWinners(cars.filterMaxMoved().toNames());
 
         return result;
     }

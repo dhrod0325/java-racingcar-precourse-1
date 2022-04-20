@@ -22,7 +22,7 @@ public class CarsMaxMoved {
     }
 
     private void add(List<Car> result, Car car, int maxPosition) {
-        if (!car.isOverPosition(maxPosition)) {
+        if (!car.getPosition().isOver(maxPosition)) {
             return;
         }
 

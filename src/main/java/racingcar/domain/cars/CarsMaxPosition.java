@@ -21,6 +21,6 @@ public class CarsMaxPosition {
             return 0;
         }
 
-        return result.get(0).getPosition();
+        return result.get(0).getPosition().get();
     }
 }

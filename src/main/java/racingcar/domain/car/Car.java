@@ -4,21 +4,31 @@ import racingcar.domain.car.move.CarMove;
 
 public class Car implements Comparable<Car> {
     private final CarName carName;
-    private final CarPosition position = new CarPosition(0);
+    private final CarPosition position;
 
     public Car(String name) {
         this.carName = new CarName(name);
+        this.position = new CarPosition(0);
     }
 
-    public int move(CarMove carMove) {
+    public CarPosition move(CarMove carMove) {
         if (carMove.isForward()) {
             position.plus();
         }
 
-        return position.get();
+        return position;
     }
 
-    public String display() {
+    public CarName getCarName() {
+        return carName;
+    }
+
+    public CarPosition getPosition() {
+        return position;
+    }
+
+    @Override
+    public String toString() {
         StringBuilder result = new StringBuilder(carName.get());
         result.append(" : ");
 
@@ -27,18 +37,6 @@ public class Car implements Comparable<Car> {
         }
 
         return result.toString();
-    }
-
-    public CarName getCarName() {
-        return carName;
-    }
-
-    public boolean isOverPosition(int position) {
-        return this.position.isOver(position);
-    }
-
-    public int getPosition() {
-        return position.get();
     }
 
     @Override

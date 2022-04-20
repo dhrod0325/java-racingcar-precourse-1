@@ -23,24 +23,19 @@ public class Cars implements Iterable<Car> {
         }
     }
 
-    public String display() {
+    public List<String> toNames() {
+        return new CarsName(carList).getNames();
+    }
+
+    @Override
+    public String toString() {
         List<String> result = new ArrayList<>();
 
         for (Car car : carList) {
-            result.add(car.display());
+            result.add(car.toString());
         }
 
         return String.join("\n", result);
-    }
-
-    public List<String> getNames() {
-        List<String> result = new ArrayList<>();
-
-        for (Car car : this) {
-            result.add(car.getCarName().get());
-        }
-
-        return result;
     }
 
     @Override

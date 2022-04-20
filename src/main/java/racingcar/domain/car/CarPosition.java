@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import racingcar.domain.validator.NumberValidator;
 
-class CarPosition {
+public class CarPosition {
     private int position;
 
     public CarPosition(int position) {
