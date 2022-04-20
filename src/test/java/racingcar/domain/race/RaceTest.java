@@ -23,10 +23,11 @@ public class RaceTest {
         jun = new Car("jun");
         race = new RaceBuilder()
                 .setCars(new Cars(Arrays.asList(pobi, jun)))
-                .setMonitor(new RaceMonitor())
+                .setRaceMonitor(new RaceMonitor())
+                .setRaceEngine(EngineFactory.forward())
                 .setRaceCount(new RaceCount(5)).build();
 
-        raceResult = race.start(EngineFactory.forward());
+        raceResult = race.start();
     }
 
     @Test
@@ -38,15 +39,13 @@ public class RaceTest {
     public void 우승자이름출력테스트2() {
         pobi.move(EngineFactory.forward());
 
-        raceResult = race.start(EngineFactory.forward());
-
         assertEquals(raceResult.winnerCarsNameList(), Collections.singletonList("pobi"));
     }
 
     @Test
     public void 우승자이름출력테스트실패() {
         pobi.move(EngineFactory.forward());
-        race.start(EngineFactory.forward());
+        race.start();
 
         assertNotEquals(raceResult.winnerCarsNameList(), Collections.singletonList("jun"));
     }

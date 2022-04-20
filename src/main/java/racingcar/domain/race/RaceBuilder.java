@@ -1,11 +1,13 @@
 package racingcar.domain.race;
 
 import racingcar.domain.cars.Cars;
+import racingcar.domain.engine.Engine;
 
 public class RaceBuilder {
     private Cars cars;
     private RaceCount raceCount;
-    private RaceMonitor monitor;
+    private RaceMonitor raceMonitor;
+    private Engine raceEngine;
 
     public RaceBuilder setCars(Cars cars) {
         this.cars = cars;
@@ -17,13 +19,19 @@ public class RaceBuilder {
         return this;
     }
 
-    public RaceBuilder setMonitor(RaceMonitor monitor) {
-        this.monitor = monitor;
+    public RaceBuilder setRaceMonitor(RaceMonitor raceMonitor) {
+        this.raceMonitor = raceMonitor;
+
+        return this;
+    }
+
+    public RaceBuilder setRaceEngine(Engine raceEngine) {
+        this.raceEngine = raceEngine;
 
         return this;
     }
 
     public Race build() {
-        return new Race(cars, raceCount, monitor);
+        return new Race(cars, raceCount, raceMonitor, raceEngine);
     }
 }
