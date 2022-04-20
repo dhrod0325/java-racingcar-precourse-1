@@ -1,12 +1,11 @@
 package racingcar.domain.cars;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.move.CarMove;
 
-public class Cars implements Iterable<Car> {
+public class Cars {
     private final List<Car> carList;
 
     public Cars(List<Car> carList) {
@@ -38,8 +37,7 @@ public class Cars implements Iterable<Car> {
         return String.join("\n", result);
     }
 
-    @Override
-    public Iterator<Car> iterator() {
-        return carList.iterator();
+    public List<Car> toList() {
+        return carList;
     }
 }
