@@ -1,6 +1,6 @@
 package racingcar.game.controller;
 
-import racingcar.domain.car.engine.CarEngine;
+import racingcar.domain.engine.Engine;
 import racingcar.domain.cars.Cars;
 import racingcar.domain.race.Race;
 import racingcar.domain.race.RaceBuilder;
@@ -12,9 +12,9 @@ import racingcar.game.view.OutputView;
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarEngine carEngine;
+    private final Engine carEngine;
 
-    public GameController(InputView inputView, OutputView outputView, CarEngine carEngine) {
+    public GameController(InputView inputView, OutputView outputView, Engine carEngine) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.carEngine = carEngine;

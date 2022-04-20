@@ -1,12 +1,12 @@
-package racingcar.domain.car.engine;
+package racingcar.domain.engine;
 
-public class NumberCarEngine implements CarEngine {
+public class NumberEngine implements Engine {
     public static final int FORWARD_NUMBER = 4;
     public static final int STOP_NUMBER = 0;
 
     private final int number;
 
-    public NumberCarEngine(int number) {
+    public NumberEngine(int number) {
         this.number = number;
     }
 
