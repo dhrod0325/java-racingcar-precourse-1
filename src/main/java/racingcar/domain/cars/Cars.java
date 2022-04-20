@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.engine.Engine;
-import racingcar.domain.validator.CarsValidator;
 
 public class Cars {
     private final List<Car> carList;
@@ -12,9 +11,7 @@ public class Cars {
     public Cars(List<Car> carList) {
         this.carList = carList;
 
-        for (Car car : carList) {
-            CarsValidator.validate(carList, car);
-        }
+        getCarsName().validate();
     }
 
     public void move(Engine engine) {
