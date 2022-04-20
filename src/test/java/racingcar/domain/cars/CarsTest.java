@@ -50,7 +50,7 @@ public class CarsTest {
     public void 차움직임테스트() {
         cars.move(EngineFactory.forward());
 
-        for (Car car : cars.toList()) {
+        for (Car car : cars.asList()) {
             assertEquals(car.getPosition().get(), 1);
         }
     }

@@ -7,7 +7,7 @@ import racingcar.domain.cars.CarsMaxPosition;
 
 public class CarsFilter {
     public static Cars maxMoved(Cars cars) {
-        return maxMoved(cars.toList());
+        return maxMoved(cars.asList());
     }
 
     public static Cars maxMoved(List<Car> carList) {
