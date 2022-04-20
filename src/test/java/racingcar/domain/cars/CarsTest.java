@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.move.NumberCarMove;
+import racingcar.domain.cars.factory.CarsFactory;
 
 public class CarsTest {
     Car pobi;
