@@ -7,11 +7,11 @@ import racingcar.domain.engine.Engine;
 
 public class Cars {
     private final List<Car> carList;
+    private final CarsName carsName;
 
     public Cars(List<Car> carList) {
         this.carList = carList;
-
-        getCarsName().validate();
+        this.carsName = new CarsName(carList);
     }
 
     public void move(Engine engine) {
@@ -21,7 +21,7 @@ public class Cars {
     }
 
     public CarsName getCarsName() {
-        return new CarsName(carList);
+        return carsName;
     }
 
     @Override
