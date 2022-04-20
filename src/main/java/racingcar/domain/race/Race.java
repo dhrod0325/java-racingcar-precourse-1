@@ -5,12 +5,12 @@ import racingcar.domain.engine.Engine;
 
 public class Race {
     private final Cars cars;
-    private final RaceCount raceCount;
+    private final RaceRoundCount raceRoundCount;
     private final RaceMonitor monitor;
     private final Engine raceEngine;
 
-    public Race(Cars cars, RaceCount raceCount, RaceMonitor monitor, Engine raceEngine) {
-        this.raceCount = raceCount;
+    public Race(Cars cars, RaceRoundCount raceRoundCount, RaceMonitor monitor, Engine raceEngine) {
+        this.raceRoundCount = raceRoundCount;
         this.cars = cars;
         this.monitor = monitor;
         this.raceEngine = raceEngine;
@@ -21,7 +21,7 @@ public class Race {
 
         RaceResult result = new RaceResult(cars);
 
-        for (int i = 0; i < raceCount.get(); i++) {
+        for (int i = 0; i < raceRoundCount.get(); i++) {
             cars.move(raceEngine);
             monitor.add(cars.toString());
         }

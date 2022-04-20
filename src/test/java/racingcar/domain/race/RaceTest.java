@@ -25,7 +25,7 @@ public class RaceTest {
                 .setCars(new Cars(Arrays.asList(pobi, jun)))
                 .setRaceMonitor(new RaceMonitor())
                 .setRaceEngine(EngineFactory.forward())
-                .setRaceCount(new RaceCount(5)).build();
+                .setRaceRoundCount(new RaceRoundCount(5)).build();
 
         raceResult = race.start();
     }

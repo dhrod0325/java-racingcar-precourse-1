@@ -5,7 +5,7 @@ import racingcar.domain.engine.Engine;
 
 public class RaceBuilder {
     private Cars cars;
-    private RaceCount raceCount;
+    private RaceRoundCount raceRoundCount;
     private RaceMonitor raceMonitor;
     private Engine raceEngine;
 
@@ -14,8 +14,8 @@ public class RaceBuilder {
         return this;
     }
 
-    public RaceBuilder setRaceCount(RaceCount raceCount) {
-        this.raceCount = raceCount;
+    public RaceBuilder setRaceRoundCount(RaceRoundCount raceRoundCount) {
+        this.raceRoundCount = raceRoundCount;
         return this;
     }
 
@@ -32,6 +32,6 @@ public class RaceBuilder {
     }
 
     public Race build() {
-        return new Race(cars, raceCount, raceMonitor, raceEngine);
+        return new Race(cars, raceRoundCount, raceMonitor, raceEngine);
     }
 }

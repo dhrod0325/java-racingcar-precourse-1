@@ -4,7 +4,7 @@ import racingcar.domain.cars.Cars;
 import racingcar.domain.engine.EngineFactory;
 import racingcar.domain.race.Race;
 import racingcar.domain.race.RaceBuilder;
-import racingcar.domain.race.RaceCount;
+import racingcar.domain.race.RaceRoundCount;
 import racingcar.domain.race.RaceMonitor;
 import racingcar.domain.race.RaceResult;
 import racingcar.game.view.InputView;
@@ -25,7 +25,7 @@ public class GameController {
     public void run() {
         Race race = new RaceBuilder()
                 .setCars(getCars())
-                .setRaceCount(getRaceCount())
+                .setRaceRoundCount(getRaceRoundCount())
                 .setRaceMonitor(new RaceMonitor())
                 .setRaceEngine(EngineFactory.random(RANDOM_CAR_FORWARD_MIN, RANDOM_CAR_FORWARD_MAX))
                 .build();
@@ -48,15 +48,15 @@ public class GameController {
         }
     }
 
-    private RaceCount getRaceCount() {
+    private RaceRoundCount getRaceRoundCount() {
         try {
             outputView.displayInputCount();
 
-            return inputView.getRaceCount();
+            return inputView.getRaceRoundCount();
         } catch (IllegalArgumentException e) {
             outputView.displayError(e);
 
-            return getRaceCount();
+            return getRaceRoundCount();
         }
     }
 }
