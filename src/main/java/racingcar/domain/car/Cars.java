@@ -1,7 +1,6 @@
 package racingcar.domain.car;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import racingcar.domain.car.move.CarMove;
@@ -29,6 +28,10 @@ public class Cars implements Iterable<Car> {
         }
     }
 
+    public Cars toMaxMoved() {
+        return new Cars(new CarsMaxMoved(carList).get());
+    }
+
     public String display() {
         List<String> result = new ArrayList<>();
 
@@ -39,10 +42,6 @@ public class Cars implements Iterable<Car> {
         return String.join("\n", result);
     }
 
-    public Cars getMaxMovedCars() {
-        return getOverPositionCars(getMaxPosition());
-    }
-
     public List<String> getNames() {
         List<String> result = new ArrayList<>();
 
@@ -51,40 +50,6 @@ public class Cars implements Iterable<Car> {
         }
 
         return result;
-    }
-
-    private List<Car> sorted() {
-        List<Car> result = new ArrayList<>(carList);
-        Collections.sort(result);
-        return result;
-    }
-
-    private Cars getOverPositionCars(int position) {
-        List<Car> result = new ArrayList<>();
-
-        for (Car car : this) {
-            addOverPositionCar(result, car, position);
-        }
-
-        return new Cars(result);
-    }
-
-    private void addOverPositionCar(List<Car> result, Car car, int position) {
-        if (!car.isOverPosition(position)) {
-            return;
-        }
-
-        result.add(car);
-    }
-
-    private int getMaxPosition() {
-        List<Car> result = sorted();
-
-        if (result.isEmpty()) {
-            return 0;
-        }
-
-        return result.get(0).getPosition();
     }
 
     @Override

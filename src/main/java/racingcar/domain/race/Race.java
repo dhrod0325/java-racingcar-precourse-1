@@ -20,7 +20,7 @@ public class Race {
             result.addResult(cars.display());
         }
 
-        result.addResultWinners(cars.getMaxMovedCars().getNames());
+        result.addResultWinners(cars.toMaxMoved().getNames());
 
         return result;
     }

@@ -31,14 +31,14 @@ public class CarsTest {
         cars.move(NumberCarMove.forward());
 
         Assertions.assertArrayEquals(cars
-                .getMaxMovedCars()
+                .toMaxMoved()
                 .getNames()
                 .toArray(), new String[]{"pobi", "jun"});
 
         pobi.move(NumberCarMove.forward());
 
         Assertions.assertArrayEquals(cars
-                .getMaxMovedCars()
+                .toMaxMoved()
                 .getNames()
                 .toArray(), new String[]{"pobi"});
     }
