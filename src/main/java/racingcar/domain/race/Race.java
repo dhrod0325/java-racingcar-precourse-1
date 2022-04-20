@@ -12,27 +12,16 @@ public class Race {
         this.cars = cars;
     }
 
-    public String start(CarMove carMove) {
-        StringBuilder sb = new StringBuilder();
+    public RaceResult start(CarMove carMove) {
+        RaceResult result = new RaceResult();
 
         for (int i = 0; i < raceCount.get(); i++) {
             cars.move(carMove);
-
-            sb.append(cars.display()).append("\n\n");
+            result.addResult(cars.display());
         }
 
-        return sb.toString();
-    }
+        result.addResultWinners(cars.getMaxMovedCars().getNames());
 
-    public String displayCars() {
-        return cars.display();
-    }
-
-    public String displayWinners() {
-        return String.join(",", winners().getNames());
-    }
-
-    private Cars winners() {
-        return cars.getMaxMovedCars();
+        return result;
     }
 }

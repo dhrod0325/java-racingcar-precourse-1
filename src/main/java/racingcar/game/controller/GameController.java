@@ -2,8 +2,9 @@ package racingcar.game.controller;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.move.CarMove;
-import racingcar.domain.race.Race;
+import racingcar.domain.race.RaceBuilder;
 import racingcar.domain.race.RaceCount;
+import racingcar.domain.race.RaceResult;
 import racingcar.game.view.InputView;
 import racingcar.game.view.OutputView;
 
@@ -19,17 +20,23 @@ public class GameController {
     }
 
     public void run() {
-        Race race = new Race(getCars(), getRaceCount());
-        outputView.display(race.start(carMove));
-        outputView.displayWinners(race.displayWinners());
+        RaceResult raceResult = new RaceBuilder()
+                .setCars(getCars())
+                .setRaceCount(getRaceCount())
+                .build()
+                .start(carMove);
+
+        outputView.display(raceResult.toString());
     }
 
     private Cars getCars() {
         try {
             outputView.displayInputCarNames();
+
             return inputView.getCars();
         } catch (IllegalArgumentException e) {
             outputView.displayError(e);
+
             return getCars();
         }
     }
@@ -37,9 +44,11 @@ public class GameController {
     private RaceCount getRaceCount() {
         try {
             outputView.displayInputCount();
+
             return inputView.getRaceCount();
         } catch (IllegalArgumentException e) {
             outputView.displayError(e);
+
             return getRaceCount();
         }
     }
