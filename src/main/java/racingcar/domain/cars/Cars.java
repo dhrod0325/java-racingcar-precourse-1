@@ -6,10 +6,16 @@ import racingcar.domain.car.Car;
 import racingcar.domain.engine.Engine;
 
 public class Cars {
+    public static final String MSG_INVALID_NAME = "같은 이름의 차를 만들 수 없습니다.";
+
     private final List<Car> carList;
 
     public Cars(List<Car> carList) {
         this.carList = carList;
+
+        for (Car car : carList) {
+            validate(car);
+        }
     }
 
     public void move(Engine carEngine) {
@@ -35,5 +41,11 @@ public class Cars {
 
     public List<Car> toList() {
         return carList;
+    }
+
+    public void validate(Car car) {
+        if (carList.contains(car)) {
+            throw new IllegalStateException(MSG_INVALID_NAME);
+        }
     }
 }
