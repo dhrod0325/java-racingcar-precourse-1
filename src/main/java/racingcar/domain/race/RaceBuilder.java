@@ -1,6 +1,6 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.Cars;
+import racingcar.domain.cars.Cars;
 
 public class RaceBuilder {
     private Cars cars;

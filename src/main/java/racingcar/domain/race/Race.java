@@ -1,6 +1,6 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.Cars;
+import racingcar.domain.cars.Cars;
 import racingcar.domain.car.move.CarMove;
 
 public class Race {
@@ -20,7 +20,7 @@ public class Race {
             result.addResult(cars.display());
         }
 
-        result.addResultWinners(cars.toMaxMoved().getNames());
+        result.addResultWinners(cars.filterMaxMoved().getNames());
 
         return result;
     }

@@ -1,8 +1,8 @@
-package racingcar.domain.car;
+package racingcar.domain.cars;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import racingcar.domain.car.Car;
 
 public class CarsMaxMoved {
     private final List<Car> carList;
@@ -11,9 +11,7 @@ public class CarsMaxMoved {
         this.carList = new ArrayList<>(carList);
     }
 
-    public List<Car> get() {
-        int maxPosition = getMaxPosition();
-
+    public List<Car> get(int maxPosition) {
         List<Car> result = new ArrayList<>();
 
         for (Car car : carList) {
@@ -29,17 +27,5 @@ public class CarsMaxMoved {
         }
 
         result.add(car);
-    }
-
-    private int getMaxPosition() {
-        List<Car> result = new ArrayList<>(carList);
-
-        Collections.sort(result);
-
-        if (result.isEmpty()) {
-            return 0;
-        }
-
-        return result.get(0).getPosition();
     }
 }

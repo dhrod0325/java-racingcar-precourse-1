@@ -1,8 +1,9 @@
-package racingcar.domain.car;
+package racingcar.domain.cars;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import racingcar.domain.car.Car;
 import racingcar.domain.car.move.CarMove;
 
 public class Cars implements Iterable<Car> {
@@ -10,6 +11,10 @@ public class Cars implements Iterable<Car> {
 
     public Cars(List<Car> carList) {
         this.carList = carList;
+    }
+
+    public Cars filterMaxMoved() {
+        return CarsFilter.maxMoved(carList);
     }
 
     public static Cars fromNames(String[] names) {
@@ -26,10 +31,6 @@ public class Cars implements Iterable<Car> {
         for (Car car : carList) {
             car.move(carMove);
         }
-    }
-
-    public Cars toMaxMoved() {
-        return new Cars(new CarsMaxMoved(carList).get());
     }
 
     public String display() {
