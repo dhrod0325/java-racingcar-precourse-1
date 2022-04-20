@@ -9,7 +9,7 @@ public class RaceCountTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
     public void 숫자입력검증(int count) {
-        new RaceCount(String.valueOf(count));
+        new RaceCount(count);
     }
 
     @ParameterizedTest

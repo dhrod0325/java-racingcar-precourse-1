@@ -1,9 +1,11 @@
 package racingcar.domain.race;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Arrays;
+import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
@@ -30,20 +32,23 @@ public class RaceTest {
     @Test
     public void 우승자이름출력테스트1() {
         race.start(NumberCarMove.forward());
-        assertTrue(race.getRaceResult().toString().contains("최종 우승자는 pobi,jun 입니다."));
+
+        assertEquals(race.winnerCarsNameList(), Arrays.asList("pobi", "jun"));
     }
 
     @Test
     public void 우승자이름출력테스트2() {
         pobi.move(NumberCarMove.forward());
         race.start(NumberCarMove.forward());
-        assertTrue(race.getRaceResult().toString().contains("최종 우승자는 pobi 입니다."));
+
+        assertEquals(race.winnerCarsNameList(), Collections.singletonList("pobi"));
     }
 
     @Test
     public void 우승자이름출력테스트실패() {
         pobi.move(NumberCarMove.forward());
         race.start(NumberCarMove.forward());
-        assertFalse(race.getRaceResult().toString().contains("최종 우승자는 jun 입니다."));
+
+        assertNotEquals(race.winnerCarsNameList(), Collections.singletonList("jun"));
     }
 }

@@ -9,7 +9,7 @@ public class CarPositionTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
     public void 숫자입력검증(int count) {
-        new CarPosition(String.valueOf(count));
+        new CarPosition(count);
     }
 
     @ParameterizedTest
