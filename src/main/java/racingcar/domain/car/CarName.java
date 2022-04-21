@@ -6,7 +6,9 @@ public class CarName {
     private final String name;
 
     public CarName(String name) {
-        this.name = NameValidator.validate(name);
+        NameValidator.validate(name);
+
+        this.name = name;
     }
 
     public String get() {

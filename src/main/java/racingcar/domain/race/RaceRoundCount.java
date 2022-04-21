@@ -6,7 +6,9 @@ public class RaceRoundCount {
     private final int roundCount;
 
     public RaceRoundCount(String roundCount) {
-        this.roundCount = NumberValidator.validate(roundCount);
+        NumberValidator.validate(roundCount);
+        
+        this.roundCount = Integer.parseInt(roundCount);
     }
 
     public RaceRoundCount(int roundCount) {

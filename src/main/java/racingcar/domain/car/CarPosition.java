@@ -12,7 +12,9 @@ public class CarPosition {
     }
 
     public CarPosition(String position) {
-        this.position = NumberValidator.validate(position);
+        NumberValidator.validate(position);
+        
+        this.position = Integer.parseInt(position);
     }
 
     public int get() {
