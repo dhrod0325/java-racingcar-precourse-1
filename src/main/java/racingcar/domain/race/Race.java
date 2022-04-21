@@ -19,14 +19,12 @@ public class Race {
     public RaceResult start() {
         monitor.clear();
 
-        RaceResult result = new RaceResult(cars);
-
         for (int i = 0; i < raceRoundCount.get(); i++) {
             cars.move(raceEngine);
             monitor.add(cars.toString());
         }
 
-        return result;
+        return new RaceResult(cars);
     }
 
     public String monitor() {
